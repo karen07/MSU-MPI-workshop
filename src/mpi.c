@@ -270,7 +270,7 @@ int main(int argc, char **argv)
             printf("Bad comm size\n");
         }
         MPI_Finalize();
-        return 0;
+        return EXIT_FAILURE;
     }
 
     if (argc > 1) {
@@ -594,5 +594,5 @@ int main(int argc, char **argv)
     }
 
     MPI_Finalize();
-    return 0;
+    return EXIT_SUCCESS;
 }
