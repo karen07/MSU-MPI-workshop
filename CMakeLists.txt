@@ -4,6 +4,13 @@ find_package(MPI)
 find_package(OpenMP)
 add_compile_options(-Wall -Wextra -Werror -Wpedantic)
 add_link_options()
-add_executable(mpi src/mpi.c)
-install(TARGETS mpi DESTINATION /usr/bin)
-target_link_libraries(mpi MPI::MPI_C OpenMP::OpenMP_C m)
+add_executable(${PROJECT_NAME} src/mpi.c)
+install(TARGETS ${PROJECT_NAME} DESTINATION /usr/bin)
+target_link_libraries(${PROJECT_NAME} MPI::MPI_C OpenMP::OpenMP_C m)
+
+find_program(CLANGFORMAT clang-format)
+if(CLANGFORMAT)
+    add_custom_command(TARGET ${PROJECT_NAME} PRE_BUILD
+        COMMAND clang-format -i ${CMAKE_CURRENT_SOURCE_DIR}/src/*
+    )
+endif()

@@ -282,7 +282,7 @@ int main(int argc, char **argv)
     A = 2.0 * M_PI / N_x, B = 2.0 * M_PI / N_y, C = 2.0 * M_PI / N_z,
     D = sqrt(A * A / h2x + B * B / h2y + C * C / h2z);
 
-    double time_start;
+    double time_start = 0;
     MPI_Barrier(MPI_COMM_WORLD);
     if (rank == 0) {
         time_start = MPI_Wtime();
