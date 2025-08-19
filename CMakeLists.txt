@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.13)
-project(mpi)
+project(mpi-waves)
 find_package(MPI)
 find_package(OpenMP)
 add_compile_options(-Wall -Wextra -Werror -Wpedantic)
