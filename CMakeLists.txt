@@ -1,13 +1,17 @@
 cmake_minimum_required(VERSION 3.13)
 project(mpi-waves)
+
 find_package(MPI)
 find_package(OpenMP)
+
 add_compile_options(-Wall -Wextra -Werror -Wpedantic)
 add_link_options()
+
 file(GLOB SRC "src/*.c")
 add_executable(${PROJECT_NAME} ${SRC})
-install(TARGETS ${PROJECT_NAME} DESTINATION /usr/bin)
 target_link_libraries(${PROJECT_NAME} MPI::MPI_C OpenMP::OpenMP_C m)
+
+install(TARGETS ${PROJECT_NAME} DESTINATION /usr/bin)
 
 find_program(CLANGFORMAT clang-format)
 if(CLANGFORMAT)
