@@ -60,7 +60,6 @@ double phi0t(int x, int y, int z)
 //Boundary condition
 double phi_x_0(int y, int z, double t)
 {
-    (void)x;
     (void)y;
     (void)z;
     (void)t;
@@ -70,7 +69,6 @@ double phi_x_0(int y, int z, double t)
 
 double phi_x_1(int y, int z, double t)
 {
-    (void)x;
     (void)y;
     (void)z;
     (void)t;
@@ -81,7 +79,6 @@ double phi_x_1(int y, int z, double t)
 double phi_y_0(int x, int z, double t)
 {
     (void)x;
-    (void)y;
     (void)z;
     (void)t;
 
@@ -91,7 +88,6 @@ double phi_y_0(int x, int z, double t)
 double phi_y_1(int x, int z, double t)
 {
     (void)x;
-    (void)y;
     (void)z;
     (void)t;
 
@@ -102,7 +98,6 @@ double phi_z_0(int x, int y, double t)
 {
     (void)x;
     (void)y;
-    (void)z;
     (void)t;
 
     return 0;
@@ -112,7 +107,6 @@ double phi_z_1(int x, int y, double t)
 {
     (void)x;
     (void)y;
-    (void)z;
     (void)t;
 
     return 0;
@@ -371,6 +365,10 @@ int main(int argc, char **argv)
     }
 
     double max_error = 0, error = 0, global_max_error = 0;
+    (void)max_error;
+    (void)error;
+    (void)global_max_error;
+
 #pragma omp parallel for reduction(+ : max_error)
     for (int p = 1; p < block.len_z - 1; p++) {
         for (int j = 1; j < block.len_y - 1; j++) {
