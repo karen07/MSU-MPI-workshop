@@ -1,16 +1,16 @@
 # MSU MPI workshop
 
-This repository contains a 3D wave-equation solver developed as an MSU parallel-programming workshop project.
-
-The computational domain is decomposed between MPI processes, while OpenMP is used inside each process for shared-memory parallelism. Neighboring MPI ranks exchange boundary layers with non-blocking point-to-point communication.
-
-The program can write VTK snapshots for visualization and prints the numerical error and execution time, making the project useful as a compact example of hybrid MPI + OpenMP numerical code.
+A 3D wave-equation solver developed for an MSU parallel-programming workshop. MPI divides
+the domain between processes, while OpenMP parallelizes computation within each process.
 
 ## Описание
 
-Этот репозиторий содержит решатель трехмерного волнового уравнения, разработанный как проект практикума МГУ по параллельному программированию.
+Решатель трёхмерного волнового уравнения, созданный для практикума МГУ по параллельному
+программированию. MPI распределяет расчётную область между процессами, а OpenMP
+распараллеливает вычисления внутри каждого процесса.
 
-Вычислительная область распределяется между процессами MPI, а OpenMP используется внутри каждого процесса для параллельных вычислений с общей памятью. Соседние процессы MPI обмениваются граничными слоями с помощью неблокирующих двухточечных операций.
+Соседние процессы MPI обмениваются граничными слоями с помощью неблокирующих двухточечных
+операций.
 
 Программа умеет записывать снимки VTK для визуализации и выводит численную ошибку и время выполнения, поэтому проект можно использовать как компактный пример гибридного численного кода на MPI + OpenMP.
 
